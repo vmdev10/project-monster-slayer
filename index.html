@@ -62,7 +62,7 @@
         </div>
         <div
           class="panel buttons shadow-sm mb-md-3 p-md-3 bg-body rounded"
-          v-if="victoria && startNewPlay"
+          v-if="victoria && startNewGame"
         >
           <button
             @click="setAttackScore"
@@ -86,7 +86,7 @@
           </button>
           <button 
             type="button"
-            @click="startNewPlay = false"
+            @click="startNewGame = false"
             class="btn btn-secondary btn-sm"
           >
             DESISTIR
@@ -98,7 +98,7 @@
         >
           <button 
             type="button"
-            @click="startNewPlay = true"
+            @click="startNewGame = true"
             class="btn btn-primary"
           >
             INICIAR NOVO JOGO

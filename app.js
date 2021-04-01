@@ -9,13 +9,8 @@ new Vue({
         maxScore: 0,
         scoreLifePlayer: 100,
         scoreLifeMonster: 100,
-        startNewPlay: true
+        startNewGame: true
     },
-    // computed: {
-    //     showStartNewPlay() {
-    //         this.startNewPlay = !this.startNewPlay
-    //     }
-    // },
     methods: {
         setAttackScore() {
             this.playerScore = Math.floor(Math.random() * 10) + 1;

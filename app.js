@@ -2,8 +2,8 @@ new Vue({
     el: '#app',
     data: {
         victoria: true,
-        playerScore: null,
-        monsterScore: null,
+        scoreOne: null,
+        scoreTwo: null,
         scoresArray: [],
         minScore: 0,
         maxScore: 0,
@@ -15,26 +15,30 @@ new Vue({
     },
     methods: {
         setAttackScore() {
-            this.playerScore = Math.floor(Math.random() * 10) + 1;
-            this.monsterScore = Math.floor(Math.random() * 10) + 1;
-            this.scoresArray.push(this.playerScore, this.monsterScore)
-            // console.log(this.scoresArray)
-
+            this.scoreOne = Math.floor(Math.random() * 10) + 1;
+            this.scoreTwo = Math.floor(Math.random() * 10) + 1;
+            this.scoresArray.push(this.scoreOne, this.scoreTwo)
             
             this.minScore = Math.min.apply(null, this.scoresArray)
             this.maxScore = Math.max.apply(null, this.scoresArray)
-
+            
             this.scoresArray = []
-
+            
             this.scoreLifePlayer = (this.scoreLifePlayer - this.maxScore)
             this.scoreLifeMonster = (this.scoreLifeMonster - this.minScore)
-
+            
             // console.log(this.maxScore, this.minScore)
+
+            if(this.scoreLifePlayer <= 0) {
+                this.scoreLifePlayer = 0
+            } else if (this.scoreLifeMonster <= 0) {
+                this.scoreLifeMonster = 0
+            }
         },
         setSpecialAttackScore() {
-            this.playerScore = Math.floor(Math.random() * 10) + 1;
-            this.monsterScore = Math.floor(Math.random() * 10) + 1;
-            this.scoresArray.push(this.playerScore, this.monsterScore)
+            this.scoreOne = Math.floor(Math.random() * 10) + 1;
+            this.scoreTwo = Math.floor(Math.random() * 10) + 1;
+            this.scoresArray.push(this.scoreOne, this.scoreTwo)
 
             
             this.minScore = Math.min.apply(null, this.scoresArray)
@@ -45,7 +49,18 @@ new Vue({
             this.scoreLifePlayer = (this.scoreLifePlayer - this.minScore)
             this.scoreLifeMonster = (this.scoreLifeMonster - this.maxScore)
 
+            if(this.scoreLifePlayer <= 0) {
+                this.scoreLifePlayer = 0
+            } else if (this.scoreLifeMonster <= 0) {
+                this.scoreLifeMonster = 0
+            }
+
             // console.log(this.minScore, this.maxScore)
         },
+        showStartGame() {
+            this.startNewGame = true
+            this.scoreLifePlayer = 100
+            this.scoreLifeMonster = 100
+        }
     },
 })

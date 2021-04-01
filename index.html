@@ -67,7 +67,7 @@
         </div>
         <div
           class="panel buttons shadow-sm mb-md-3 p-md-3 bg-body rounded"
-          v-if="victoria && startNewGame"
+          v-if="victoria && startNewGame && scoreLifePlayer > 0 && scoreLifeMonster > 0"
         >
           <button
             @click="setAttackScore"
@@ -103,16 +103,19 @@
         >
           <button 
             type="button"
-            @click="startNewGame = true"
+            @click="showStartGame"
             class="btn btn-primary"
           >
             INICIAR NOVO JOGO
           </button>
         </div>
         <div class="panel logs shadow-sm mb-md-3 p-md-5 bg-body rounded">
-          <div class="score-actions" v-for="">
-            MONSTRO ATINGIU JOGADOR COM 12 PONTOS
-          </div>
+            <div class="score-actions">
+              MONSTRO ATINGIU JOGADOR COM 10.
+            </div>
+            <div class="score-actions">
+              JOGADOR ATINGIU JOGADOR COM 10.
+            </div>
         </div>
       </div>
     </div>

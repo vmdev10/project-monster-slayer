@@ -32,14 +32,18 @@
               <div
                 class="progress-bar"
                 role="progressbar"
-                style="width: 100%"
+                :class="[scoreLifePlayer >= 20 ? greenBar : redBar]"
+                :style="{width: scoreLifePlayer + '%'}"
                 aria-valuenow="0"
                 aria-valuemin="0"
                 aria-valuemax="100"
               ></div>
             </div>
-            <div class="score-life"
-            >{{ scoreLifePlayer }}%</div>
+            <div
+              class="score-life"
+            >
+            {{ scoreLifePlayer }}%
+          </div>
           </div>
           <div class="monster px-2 px-md-5">
             <div class="id-player mb-md-2">Monstro</div>
@@ -47,7 +51,8 @@
               <div
                 class="progress-bar"
                 role="progressbar"
-                style="width: 100%"
+                :class="[scoreLifeMonster >= 20 ? greenBar : redBar]"
+                :style="{width: scoreLifeMonster + '%'}"
                 aria-valuenow="0"
                 aria-valuemin="0"
                 aria-valuemax="100"
@@ -106,7 +111,7 @@
         </div>
         <div class="panel logs shadow-sm mb-md-3 p-md-5 bg-body rounded">
           <div class="score-actions" v-for="">
-            MONSTRO ATINGIU JOGADOR COM 12.
+            MONSTRO ATINGIU JOGADOR COM 12 PONTOS
           </div>
         </div>
       </div>

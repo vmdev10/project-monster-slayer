@@ -6,6 +6,18 @@
     padding: 0;
 }
 /* 
+    SCORE PROGRESS BAR START
+*/
+.progress-bar-red {
+    background-color: red !important;
+}
+.progress-bar-green {
+    background-color: rgb(0, 255, 34) !important;
+}
+/* 
+    SCORE PROGRESS BAR END
+*/
+/* 
         panel scores start
 */
 .panel.scores {

@@ -9,7 +9,9 @@ new Vue({
         maxScore: 0,
         scoreLifePlayer: 100,
         scoreLifeMonster: 100,
-        startNewGame: true
+        startNewGame: true,
+        redBar: 'progress-bar-red',
+        greenBar: 'progress-bar-green'
     },
     methods: {
         setAttackScore() {

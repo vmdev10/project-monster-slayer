@@ -61,9 +61,9 @@
             <div class="score-life">{{ scoreLifeMonster }}%</div>
           </div>
         </div>
-        <div class="panel result shadow-sm mb-md-3 p-md-3 bg-body rounded">
-          <h5 class="victoria-mensage" v-if="victoria">Você ganhou! :)</h5>
-          <h5 class="game-over-mensage" v-else>Você perdeu! :(</h5>
+        <div class="panel result shadow-sm mb-md-3 p-md-3 bg-body rounded" v-show="scoreLifePlayer == 0 || scoreLifeMonster == 0">
+          <h5 class="victoria-mensage" v-if="victoria && scoreLifePlayer > 0 && scoreLifeMonster == 0">Você ganhou! :)</h5>
+          <h5 class="game-over-mensage" v-else-if="scoreLifePlayer == 0 && scoreLifeMonster > 0">Você perdeu! :(</h5>
         </div>
         <div
           class="panel buttons shadow-sm mb-md-3 p-md-3 bg-body rounded"
@@ -85,6 +85,7 @@
           </button>
           <button 
             type="button"
+            @click="setCureScore"
             class="btn btn-success btn-sm"
           >
             CURAR

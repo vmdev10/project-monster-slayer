@@ -9,6 +9,8 @@ new Vue({
         maxScore: 0,
         scoreLifePlayer: 100,
         scoreLifeMonster: 100,
+        scoreCurePlayer: null,
+        scoreCureMonster: null,
         startNewGame: true,
         redBar: 'progress-bar-red',
         greenBar: 'progress-bar-green'
@@ -23,7 +25,7 @@ new Vue({
             this.maxScore = Math.max.apply(null, this.scoresArray)
             
             this.scoresArray = []
-            
+
             this.scoreLifePlayer = (this.scoreLifePlayer - this.maxScore)
             this.scoreLifeMonster = (this.scoreLifeMonster - this.minScore)
             
@@ -56,6 +58,15 @@ new Vue({
             }
 
             // console.log(this.minScore, this.maxScore)
+        },
+        setCureScore() {
+            this.scoreOne = Math.floor(Math.random() * 10) + 1;
+            this.scoreTwo = Math.floor(Math.random() * 10) + 1;
+
+            this.scoreCurePlayer = (this.scoreLifePlayer + this.scoreOne - this.scoreTwo)
+            this.scoreLifePlayer = this.scoreCurePlayer
+
+            console.log(this.scoreOne, this.scoreTwo)
         },
         showStartGame() {
             this.startNewGame = true
